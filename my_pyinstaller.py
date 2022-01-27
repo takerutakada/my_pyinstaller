@@ -2,7 +2,7 @@ from os.path import split
 from os import remove
 from sys import argv
 from shutil import move, rmtree
-import subprocess
+from subprocess import call
 
 file_path = argv[1]
 file_dir, file_name = split(file_path)
@@ -22,13 +22,13 @@ def MyPyinstaller():
     optional parameter : console...add console or not
 
     Ex1:python my_pyinstaller.py path/to/py/file.py  ...adding console
-    
+
     Ex2:python my_pyinstaller.py path/to/py/file.py n...not adding console
     """
 
     # pyinstaller実行部分
     console = '--noconsole' if len(argv) == 3 else ''
-    subprocess.call(f'python -m PyInstaller -F {console} --onefile --exclude numpy --exclude pandas {file_path}')
+    call(f'python -m PyInstaller -F {console} --onefile --exclude numpy --exclude pandas {file_path}')
     print('pyinstaller complited.')
 
     # exe移動、不要ファイル・ディレクトリ削除
