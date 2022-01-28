@@ -32,7 +32,7 @@ def MyPyinstaller():
     print('pyinstaller complited.')
 
     # exe移動、不要ファイル・ディレクトリ削除
-    move(f'dist/{file_name[:-3]}.exe', file_dir) 
+    move(f'dist/{file_name[:-3]}.exe', f'{file_dir}/{file_name[:-3]}.exe') 
     print(f'{file_name[:-3]}.exe moved.')
     rmtree('dist')
     rmtree('build')
